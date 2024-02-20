@@ -1,22 +1,24 @@
-import { Plus } from "lucide-react";
-import TasksContainer from "./TasksContainer";
+import InputBar from "./InputBar";
+import { useState } from "react";
 
 function TasksField() {
+    const [tasks, setTasks] = useState<string[]>([]);
+    const onAddTask = (newTask: string) => {
+        setTasks([...tasks, newTask]);
+    };
     return (
         <div className="tasks-field">
             <div className="container">
-                <div className="input-container">
-                    <div>
-                        <span className=" bg-personal"></span>
-                        <span className=" bg-freelance"></span>
-                        <span className=" bg-work"></span>
-                    </div>
-                    <input type="text" />
-                    <div className="add-task">
-                        <Plus color="#d5a3fe" size={30} />
-                    </div>
-                </div>
-                <TasksContainer />
+                <InputBar onAddTask={onAddTask} />
+                <ul className="tasks-container">
+                    {tasks.map((task, index) => {
+                        return (
+                            <li className="task" key={index}>
+                                {index + 1}- {task}
+                            </li>
+                        );
+                    })}
+                </ul>
             </div>
         </div>
     );

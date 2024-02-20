@@ -80,11 +80,11 @@
 }
 
 .input-container {
-    @apply bg-white rounded-xl flex items-center gap-2 p-2 w-full;
+    @apply bg-white rounded-xl flex items-center gap-2 px-4  w-full;
 }
 
 .input-container > input {
-    @apply outline-none border-none text-2xl p-2 caret-primary flex-1;
+    @apply outline-none border-none text-2xl p-4 caret-primary flex-1;
     border-left: 1px solid #eee;
 }
 
@@ -98,4 +98,12 @@
 
 .add-task {
     @apply p-1 rounded-xl border-2 border-icons cursor-pointer;
+}
+
+.tasks-container {
+    @apply flex flex-col gap-5 p-4;
+}
+
+.tasks-container > li {
+    @apply bg-white p-5 rounded-lg text-xl;
 }
