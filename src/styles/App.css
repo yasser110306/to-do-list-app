@@ -1,3 +1,53 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#root {
+    @apply flex gap-5 h-full overflow-hidden;
+}
+
+.side-nav::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    background-color: #38cbf2;
+    top: -70px;
+    right: -60px;
+}
+
+.side-nav {
+    @apply flex flex-col gap-8 h-full items-center relative bg-secondry px-5 py-10;
+}
+
+.side-nav::after {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    background-color: #fb859e;
+    bottom: -80px;
+    left: -50px;
+}
+
+.profile-info {
+    @apply flex gap-4 items-center;
+}
+
+.img-container {
+    @apply w-20 h-20 flex items-center rounded-full overflow-hidden;
+}
+
+.user-name {
+    @apply text-base font-normal;
+}
+
+.user-name > span {
+    @apply text-primary;
+}
+
+.custom-border {
+    @apply h-3px w-3/4 bg-primary;
+}

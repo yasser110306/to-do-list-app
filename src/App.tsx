@@ -1,7 +1,12 @@
+import SideNav from "./components/SideNav";
 import "./styles/App.css";
 
 function App() {
-    return <div>yasser is the goat</div>;
+    return (
+        <div>
+            <SideNav />
+        </div>
+    );
 }
 
 export default App;
