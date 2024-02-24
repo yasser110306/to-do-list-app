@@ -10,13 +10,22 @@ interface InputBarProps {
 function InputBar({ onAddTask }: InputBarProps) {
     const [newTask, setNewTask] = useState("");
 
-    const handleChange = (e: inputChangeEvent) => {
-        setNewTask(e.target.value);
+    const handleChange = (event: inputChangeEvent) => {
+        setNewTask(event.target.value);
     };
 
     const handleSubmit = () => {
-        onAddTask(newTask);
-        setNewTask("");
+        if (newTask) {
+            onAddTask(newTask);
+            setNewTask("");
+        }
+    };
+
+    const handleEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if (newTask && event.key === "Enter") {
+            onAddTask(newTask);
+            setNewTask("");
+        }
     };
 
     return (
@@ -27,7 +36,13 @@ function InputBar({ onAddTask }: InputBarProps) {
                 <span className=" bg-work"></span>
             </div>
 
-            <input type="text" value={newTask} placeholder="Add your new task..." onChange={handleChange} />
+            <input
+                type="text"
+                onKeyDown={handleEnter}
+                value={newTask}
+                placeholder="Add your new task..."
+                onChange={handleChange}
+            />
 
             <button className="add-task" onClick={handleSubmit}>
                 <Plus color="#d5a3fe" size={30} />

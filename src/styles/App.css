@@ -107,3 +107,11 @@
 .tasks-container > li {
     @apply bg-white p-5 rounded-lg text-xl;
 }
+
+.task {
+    @apply flex justify-between items-center;
+}
+
+.task > svg {
+    @apply hover:text-red-600 transition cursor-pointer;
+}
